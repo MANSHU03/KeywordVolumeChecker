@@ -25,9 +25,9 @@ app.post("/",(req,res)=>{
     if(data){
         const id=data._id;
         const f=data.frequency
-       // console.log(id);
+     
          key.findByIdAndUpdate(id,{frequency:f+1}).then((key)=>{
-           //    console.log(key);
+         
                freq= f+1;
                res.redirect("/");
         })
@@ -39,12 +39,11 @@ app.post("/",(req,res)=>{
     }
    })
    
-   // console.log(keyw);
-   // res.redirect("/");
+   
 });
 
 
  mongoose.connect(process.env.CONNECTION_URL,{ useNewUrlParser: true, useUnifiedTopology: true })
      .then(()=> app.listen(process.env.PORT, () => console.log(`server is running on ${process.env.PORT} and key=${keyw}`)))
      .catch((error) => console.log(error.message));
-//app.listen(PORT,()=>console.log(`server is running on ${PORT} and key=${keyw}`));
+
